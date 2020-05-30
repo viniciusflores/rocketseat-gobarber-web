@@ -29,7 +29,6 @@ const SingUp: React.FC = () => {
 
       await schema.validate(data, { abortEarly: false })
     } catch (err) {
-      console.log(err)
       const errrors = getValidationErrors(err)
       formRef.current?.setErrors(errrors)
     }
