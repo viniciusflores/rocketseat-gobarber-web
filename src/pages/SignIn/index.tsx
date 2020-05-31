@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react'
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
@@ -23,9 +23,9 @@ interface SignInFormData {
 
 const SingIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
-
   const { signIn } = useAuth()
   const { addToast } = useToast()
+  const history = useHistory()
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -45,6 +45,8 @@ const SingIn: React.FC = () => {
           email: data.email,
           password: data.password,
         })
+
+        history.push('/dashboard')
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
@@ -62,7 +64,7 @@ const SingIn: React.FC = () => {
         })
       }
     },
-    [signIn, addToast],
+    [signIn, addToast, history],
   )
 
   return (
@@ -72,7 +74,7 @@ const SingIn: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Form ref={formRef} onSubmit={handleSubmit}>
-            <h1>Faça seu Logon</h1>
+            <h1>Faça seu Login</h1>
 
             <Input name="email" icon={FiMail} placeholder="E-mail" />
             <Input
