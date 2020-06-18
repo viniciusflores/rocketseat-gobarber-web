@@ -42,6 +42,7 @@
     }],
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
+    "import/no-duplicates":"off",
     "import/extensions": [
       "error",
       "ignorePackages",
