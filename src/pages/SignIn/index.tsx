@@ -21,7 +21,7 @@ interface SignInFormData {
   password: string
 }
 
-const SingIn: React.FC = () => {
+const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
   const { signIn } = useAuth()
   const { addToast } = useToast()
@@ -40,7 +40,7 @@ const SingIn: React.FC = () => {
         })
 
         await schema.validate(data, { abortEarly: false })
-
+        console.log('vai fazer o login')
         await signIn({
           email: data.email,
           password: data.password,
@@ -48,6 +48,7 @@ const SingIn: React.FC = () => {
 
         history.push('/dashboard')
       } catch (err) {
+        console.log('caiu no catch')
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
 
@@ -100,4 +101,4 @@ const SingIn: React.FC = () => {
   )
 }
 
-export default SingIn
+export default SignIn
