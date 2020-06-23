@@ -20,7 +20,7 @@ interface ISignInCredentials {
 
 interface IAuthContextData {
   user: IUser
-  signIn(credentials: ISignInCredentials): Promise<void>
+  signIn(credentials: ISignInCredentials): void
   signOut(): void
   updateUser(user: IUser): void
 }
@@ -42,10 +42,12 @@ const AuthProvider: React.FC = ({ children }) => {
   })
 
   const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('/sessions', {
       email,
       password,
     })
+
+    console.log(`Esse ${email} fez o login`)
 
     const { token, user } = response.data
     localStorage.setItem('@GoBarber:token', token)
@@ -86,10 +88,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
 function useAuth(): IAuthContextData {
   const context = useContext(AuthContext)
-
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider')
-  }
 
   return context
 }

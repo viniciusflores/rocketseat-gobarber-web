@@ -46,6 +46,7 @@ const SignIn: React.FC = () => {
           password: data.password,
         })
 
+        console.log('passou pelo login')
         history.push('/dashboard')
       } catch (err) {
         console.log('caiu no catch')
