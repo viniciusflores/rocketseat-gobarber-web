@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node build/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build",
     "test": "react-scripts test --env=jsdom-fourteen --watchAll false",
     "test:coverage": "react-scripts test --env=jsdom-fourteen --coverage --watchAll false",
     "eject": "react-scripts eject"
