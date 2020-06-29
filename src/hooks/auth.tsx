@@ -47,8 +47,6 @@ const AuthProvider: React.FC = ({ children }) => {
       password,
     })
 
-    console.log(`Esse ${email} fez o login`)
-
     const { token, user } = response.data
     localStorage.setItem('@GoBarber:token', token)
     localStorage.setItem('@GoBarber:user', JSON.stringify(user))

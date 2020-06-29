@@ -40,16 +40,14 @@ const SignIn: React.FC = () => {
         })
 
         await schema.validate(data, { abortEarly: false })
-        console.log('vai fazer o login')
+
         await signIn({
           email: data.email,
           password: data.password,
         })
 
-        console.log('passou pelo login')
         history.push('/dashboard')
       } catch (err) {
-        console.log('caiu no catch')
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
 
