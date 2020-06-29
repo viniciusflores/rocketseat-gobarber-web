@@ -77,7 +77,7 @@ const Profile: React.FC = () => {
             : {}),
         }
 
-        const response = await api.put('/profile', data)
+        const response = await api.put('/profile', formData)
 
         updateUser(response.data)
 
