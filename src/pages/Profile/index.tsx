@@ -14,6 +14,7 @@ import Input from '../../components/Input'
 
 import { Container, Content, AvatarInput } from './styles'
 import { useAuth } from '../../hooks/auth'
+import avatarUser from '../../assets/avatar.svg'
 
 interface ProfileFormData {
   name: string
@@ -147,7 +148,11 @@ const Profile: React.FC = () => {
           }}
         >
           <AvatarInput>
-            <img src={user.avatar_url} alt={user.name} />
+            {user.avatar_url ? (
+              <img src={user.avatar_url} alt={user.name} />
+            ) : (
+              <img src={avatarUser} alt={user.name} />
+            )}
             <label htmlFor="avatar">
               <FiCamera />
               <input type="file" id="avatar" onChange={handleAvatarChange} />

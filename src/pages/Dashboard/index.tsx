@@ -18,6 +18,7 @@ import {
   Appointment,
 } from './styles'
 import logoImg from '../../assets/logo.svg'
+import avatarUser from '../../assets/avatar.svg'
 import { useAuth } from '../../hooks/auth'
 import api from '../../services/api'
 
@@ -134,7 +135,11 @@ const Dashboard: React.FC = () => {
         <HeaderContent>
           <img src={logoImg} alt="GoBarber" />
           <Profile>
-            <img src={user.avatar_url} alt={user.name} />
+            {user.avatar_url ? (
+              <img src={user.avatar_url} alt={user.name} />
+            ) : (
+              <img src={avatarUser} alt={user.name} />
+            )}
             <div>
               <span>Bem Vindo,</span>
               <Link to="/profile">
