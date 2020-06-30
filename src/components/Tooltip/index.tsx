@@ -15,7 +15,7 @@ const Tooltip: React.FC<TooltiProps> = ({
   return (
     <Container className={className} data-cy="hasTooltip">
       {children}
-      <span>{title}</span>
+      <span data-cy={`tooltip-description-${title}`}>{title}</span>
     </Container>
   )
 }
