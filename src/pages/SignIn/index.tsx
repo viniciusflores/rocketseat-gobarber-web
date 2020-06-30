@@ -84,7 +84,9 @@ const SignIn: React.FC = () => {
               type="password"
             />
 
-            <Button type="submit">Entrar</Button>
+            <Button type="submit" dataTestId="btn-entrar">
+              Entrar
+            </Button>
 
             <Link to="/forgot-password">Esqueci minha senha</Link>
           </Form>

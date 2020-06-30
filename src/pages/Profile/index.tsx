@@ -186,7 +186,9 @@ const Profile: React.FC = () => {
             type="password"
           />
 
-          <Button type="submit">Confirmar mudanças</Button>
+          <Button type="submit" dataTestId="btn-confirmar-mudanca">
+            Confirmar mudanças
+          </Button>
         </Form>
       </Content>
     </Container>

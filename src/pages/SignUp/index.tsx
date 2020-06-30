@@ -91,7 +91,9 @@ const SingUp: React.FC = () => {
               type="password"
             />
 
-            <Button type="submit">Cadastrar</Button>
+            <Button type="submit" dataTestId="btn-cadastrar">
+              Cadastrar
+            </Button>
           </Form>
 
           <Link to="/">
