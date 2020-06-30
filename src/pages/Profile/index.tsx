@@ -132,7 +132,7 @@ const Profile: React.FC = () => {
     <Container>
       <header>
         <div>
-          <Link to="/dashboard">
+          <Link to="/dashboard" data-cy="link-to-dashboard">
             <FiArrowLeft />
           </Link>
         </div>

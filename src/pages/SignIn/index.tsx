@@ -88,10 +88,12 @@ const SignIn: React.FC = () => {
               Entrar
             </Button>
 
-            <Link to="/forgot-password">Esqueci minha senha</Link>
+            <Link to="/forgot-password" data-cy="link-to-forget-password">
+              Esqueci minha senha
+            </Link>
           </Form>
 
-          <Link to="/signup">
+          <Link to="/signup" data-cy="link-to-signup">
             <FiLogIn />
             Criar Conta
           </Link>

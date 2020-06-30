@@ -96,7 +96,7 @@ const SingUp: React.FC = () => {
             </Button>
           </Form>
 
-          <Link to="/">
+          <Link to="/" data-cy="link-to-home">
             <FiArrowLeft />
             Voltar para Login
           </Link>
