@@ -147,7 +147,7 @@ const Dashboard: React.FC = () => {
               </Link>
             </div>
           </Profile>
-          <button type="button" onClick={signOut}>
+          <button type="button" onClick={signOut} data-cy="logout-button">
             <FiPower />
           </button>
         </HeaderContent>
