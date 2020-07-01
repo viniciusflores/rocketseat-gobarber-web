@@ -195,10 +195,11 @@ const Dashboard: React.FC = () => {
                   {appointment.hourFormatted}
                 </span>
                 <div>
-                  <img
-                    src={appointment.user.avatar_url}
-                    alt={appointment.user.name}
-                  />
+                  {user.avatar_url ? (
+                    <img src={user.avatar_url} alt={user.name} />
+                  ) : (
+                    <img src={avatarUser} alt={user.name} />
+                  )}
 
                   <strong>{appointment.user.name}</strong>
                 </div>
