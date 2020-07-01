@@ -189,7 +189,12 @@ const Dashboard: React.FC = () => {
             )}
 
             {morningAppointments.map(appointment => (
-              <Appointment key={appointment.id}>
+              <Appointment
+                key={appointment.id}
+                data-cy-appointment-user={appointment.user}
+                data-cy-appointment-hour={appointment.hourFormatted}
+                data-cy-appointment-client={appointment.user.name}
+              >
                 <span>
                   <FiClock />
                   {appointment.hourFormatted}
@@ -214,7 +219,12 @@ const Dashboard: React.FC = () => {
             )}
 
             {afternoonAppointments.map(appointment => (
-              <Appointment key={appointment.id}>
+              <Appointment
+                key={appointment.id}
+                data-cy-appointment-user={appointment.user}
+                data-cy-appointment-hour={appointment.hourFormatted}
+                data-cy-appointment-client={appointment.user.name}
+              >
                 <span>
                   <FiClock />
                   {appointment.hourFormatted}
