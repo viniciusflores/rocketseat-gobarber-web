@@ -87,7 +87,7 @@ const Profile: React.FC = () => {
           type: 'success',
           title: 'Perfil atualizado!',
           description:
-            'Suas informações do perfil foram atualizadas co sucesso',
+            'Suas informações do perfil foram atualizadas com sucesso',
         })
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
