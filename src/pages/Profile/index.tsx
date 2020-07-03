@@ -36,23 +36,21 @@ const Profile: React.FC = () => {
         formRef.current?.setErrors({})
 
         const schema = Yup.object().shape({
-          name: Yup.string().required('Nome obrigatório'),
-          email: Yup.string()
-            .required('E-mail obrigatório')
-            .email('Digite um e-mail válido'),
+          name: Yup.string().required('Name is required'),
+          email: Yup.string().required('Valid e-mail is required').email(),
           old_password: Yup.string(),
           password: Yup.string().when('old_password', {
             is: val => !!val.length,
-            then: Yup.string().required('Campo obrigatório'),
+            then: Yup.string().required('Campo obrigatorio'),
             otherwise: Yup.string(),
           }),
-          password_confirmation: Yup.string()
+          password_onfirmation: Yup.string()
             .when('old_password', {
               is: val => !!val.length,
-              then: Yup.string().required('Campo obrigatório'),
+              then: Yup.string().required('Campo obrigatorio'),
               otherwise: Yup.string(),
             })
-            .oneOf([Yup.ref('password'), ''], 'Confirmação incorreta'),
+            .oneOf([Yup.ref('password'), null], 'Passwords must match'),
         })
 
         await schema.validate(data, { abortEarly: false })
