@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, FormEvent, ChangeEvent } from 'react'
+import React, { useCallback, useRef, ChangeEvent } from 'react'
 import { FiUser, FiMail, FiLock, FiCamera, FiArrowLeft } from 'react-icons/fi'
 import { useHistory, Link } from 'react-router-dom'
 import { FormHandles } from '@unform/core'
@@ -32,9 +32,8 @@ const Profile: React.FC = () => {
 
   const handleSubmit = useCallback(
     async (data: ProfileFormData) => {
+      formRef.current?.setErrors({})
       try {
-        formRef.current?.setErrors({})
-
         const schema = Yup.object().shape({
           name: Yup.string().required('Name is required'),
           email: Yup.string().required('Valid e-mail is required').email(),
