@@ -157,9 +157,9 @@ const Dashboard: React.FC = () => {
         <Schedule>
           <h1>Horários Agendados</h1>
           <p>
-            {isToday(selectedDate) && <span> Hoje</span>}
-            <span>{selectedDateAsText}</span>
-            <span>{selectedWeekDay}</span>
+            {isToday(selectedDate) && <span data-cy="isToday"> Hoje</span>}
+            <span data-cy={selectedDateAsText}>{selectedDateAsText}</span>
+            <span data-cy={selectedWeekDay}>{selectedWeekDay}</span>
           </p>
 
           {isToday(selectedDate) && nextAppointment && (
