@@ -164,7 +164,7 @@ const Profile: React.FC = () => {
           <h1>Meu perfil</h1>
 
           <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
+          <Input name="email" icon={FiMail} placeholder="E-mail" type="email" />
 
           <Input
             containerStyle={{ marginTop: 24 }}

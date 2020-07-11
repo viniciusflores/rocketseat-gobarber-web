@@ -83,7 +83,12 @@ const SingUp: React.FC = () => {
             <h1>Faça seu Cadastro</h1>
 
             <Input name="name" icon={FiUser} placeholder="Nome" />
-            <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input
+              name="email"
+              icon={FiMail}
+              placeholder="E-mail"
+              type="email"
+            />
             <Input
               name="password"
               icon={FiLock}
