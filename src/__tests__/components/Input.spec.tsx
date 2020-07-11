@@ -1,6 +1,8 @@
 import React from 'react'
-import { render, fireEvent, wait } from '@testing-library/react'
+import { render, fireEvent, waitFor, configure } from '@testing-library/react'
 import Input from '../../components/Input'
+
+configure({ testIdAttribute: 'data-cy' })
 
 jest.mock('@unform/core', () => {
   return {
@@ -17,11 +19,12 @@ jest.mock('@unform/core', () => {
 
 describe('Input component', () => {
   it('Shold be able to render an input', () => {
-    const { getByPlaceholderText } = render(
+    const { getByPlaceholderText, getByTestId } = render(
       <Input name="email" placeholder="E-mail" />,
     )
 
     expect(getByPlaceholderText('E-mail')).toBeTruthy()
+    expect(getByTestId('email')).toBeTruthy()
   })
 
   it('Should render highlight on input focus', async () => {
@@ -34,14 +37,14 @@ describe('Input component', () => {
 
     fireEvent.focus(inputElement)
 
-    await wait(() => {
+    await waitFor(() => {
       expect(containerElement).toHaveStyle('border-color:#ff9000;')
       expect(containerElement).toHaveStyle('color:#ff9000;')
     })
 
     fireEvent.blur(inputElement)
 
-    await wait(() => {
+    await waitFor(() => {
       expect(containerElement).not.toHaveStyle('border-color:#ff9000;')
       expect(containerElement).not.toHaveStyle('color:#ff9000;')
     })
@@ -53,7 +56,7 @@ describe('Input component', () => {
     )
 
     const inputElement = getByPlaceholderText('E-mail')
-    const containerElement = getByTestId('input-container')
+    const containerElement = getByTestId('email')
 
     fireEvent.change(inputElement, {
       target: { value: 'johndoe@email.com' },
@@ -61,7 +64,7 @@ describe('Input component', () => {
 
     fireEvent.blur(inputElement)
 
-    await wait(() => {
+    await waitFor(() => {
       expect(containerElement).not.toHaveStyle('border-color:#ff9000;')
       expect(containerElement).not.toHaveStyle('color:#ff9000;')
     })
